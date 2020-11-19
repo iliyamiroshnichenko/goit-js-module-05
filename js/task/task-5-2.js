@@ -1,13 +1,23 @@
- // Write code under this line
-const User = function (name, age, followers) {
-  this.name = name;
-  this.age = age;
-  this.followers = followers;
-};
+// const User = function (name, age, followers) {
+//   this.name = name;
+//   this.age = age;
+//   this.followers = followers;
+// };
  
-User.prototype.getInfo = function () {
-  return `User ${this.name} is ${this.age} years old and has ${this.followers} followers`
-}
+// User.prototype.getInfo = function () {
+//   return `User ${this.name} is ${this.age} years old and has ${this.followers} followers`
+// }
+class User {
+  constructor(name, age, followers) {
+    this.name = name;
+    this.age = age;
+    this.followers = followers;
+  }
+  getInfo() {
+    return `User ${this.name} is ${this.age} years old and has ${this.followers} followers`;
+  }
+}  
+ 
 
 
  console.log(typeof User);
