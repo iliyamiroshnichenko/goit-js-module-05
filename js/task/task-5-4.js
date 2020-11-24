@@ -1,4 +1,4 @@
-class StringBuilder{
+class StringBuilder {
   constructor(string) {
     this._value = string;
   }
@@ -9,28 +9,27 @@ class StringBuilder{
     this._value += str;
   }
   prepend(str) {
-    let srtToArr = this._value.split('');
-    srtToArr.unshift(str);
-    this._value = srtToArr.join('');
+    this._value = str + this._value;
   }
   pad(str) {
     this.append(str);
     this.prepend(str);
   }
-  }
+}
+
 
  console.log(typeof StringBuilder);
 // 'function'
 
 
- const builder = new StringBuilder('.');
+  const builder = new StringBuilder('.');
 
- builder.append('^^^^');
- console.log(builder.value); // '.^'
+  builder.append('^^^^');
+  console.log(builder.value); // '.^'
 
- builder.prepend('qwe');
-console.log(builder.value); // '^.^'
+  builder.prepend('qwe');
+ console.log(builder.value); // '^.^'
 
- builder.pad('=');
- console.log(builder.value); // '=^.^='
+  builder.pad('=');
+  console.log(builder.value); // '=^.^='
 
