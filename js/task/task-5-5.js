@@ -1,45 +1,83 @@
-class Car {
-  // Write code under this line
-  static getSpecs(obj) {
-    return `maxSpeed: ${obj.maxSpeed}, speed: ${obj.speed}, isOn: ${obj.isOn}, distance: ${obj.distance}, price: ${obj._price}`;
-  }
+// class Car {
+//   // Write code under this line
+//   static getSpecs(obj) {
+//     return `maxSpeed: ${obj.maxSpeed}, speed: ${obj.speed}, isOn: ${obj.isOn}, distance: ${obj.distance}, price: ${obj._price}`;
+//   }
 
-  constructor({ speed = 0, price, maxSpeed, isOn = false, distance = 0 }) {
-    this.speed = speed;
+//   constructor({ speed = 0, price, maxSpeed, isOn = false, distance = 0 }) {
+//     this.speed = speed;
+//     this._price = price;
+//     this.maxSpeed = maxSpeed;
+//     this.isOn = isOn;
+//     this.distance = distance;
+//   }
+
+//   get price() {
+//     return this._price;
+//   }
+//   set price(value) {
+//     this._price = value;
+//   }
+//   turnOn() {
+//     this.isOn = true;
+//   }
+//   turnOff() {
+//     this.isOn = false;
+//     this.speed = 0;
+//   }
+//   accelerate(value) {
+//     if (value + this.speed > this.maxSpeed) {
+//       this.speed = this.maxSpeed;
+//     } else {
+//       this.speed += value;
+//     }
+//   }
+//   decelerate(value) {
+//     if (this.speed - value < 0) {
+//       this.speed = 0;
+//     } else {this.speed -= value;}
+//   }
+//   drive(hours) {
+//     if (this.isOn) {
+//       this.distance += hours * this.speed;
+//     }
+//   }
+// }
+class Car {
+ // Write code under this line
+  
+  static getSpecs(car){
+  	return `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car._price}`;
+  }
+  constructor({ speed = 0, price, maxSpeed, isOn = false, distance = 0 }){
+  	this.speed = speed;
     this._price = price;
     this.maxSpeed = maxSpeed;
     this.isOn = isOn;
     this.distance = distance;
   }
-
   get price() {
-    return this._price;
+  	return this._price;
   }
   set price(value) {
-    this._price = value;
+  	this._price = value;
   }
   turnOn() {
-    this.isOn = true;
+  	this.isOn = true;
   }
   turnOff() {
-    this.isOn = false;
+  	this.isOn = false;
     this.speed = 0;
   }
   accelerate(value) {
-    if (value + this.speed > this.maxSpeed) {
-      this.speed = this.maxSpeed;
-    } else {
-      this.speed += value;
-    }
+  	this.speed = this.speed + value > this.maxSpeed ? this.maxSpeed : this.speed + value;
   }
   decelerate(value) {
-    if (this.speed - value < 0) {
-      this.speed = 0;
-    } else {this.speed -= value;}
+  	this.speed = this.speed - value < 0 ? 0 : this.speed - value;
   }
   drive(hours) {
-    if (this.isOn) {
-      this.distance += hours * this.speed;
+  	if (this.isOn){
+    	this.distance += hours * this.speed;
     }
   }
 }
